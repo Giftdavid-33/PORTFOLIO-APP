@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Davidskiltech Portfolio</title>
+    
+    <!-- External Fonts and Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Lato:wght@300&family=Poppins&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            background-color: #2a2a2a;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(42, 42, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        .navbar {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            color: #3498db;
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        /* Hero Image Section */
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            margin-top: 80px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Home Section */
+        .home {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+        }
+
+        .back-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.3;
+        }
+
+        .home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 42, 42, 0.7);
+            z-index: -1;
+        }
+
+        .home-text {
+            z-index: 1;
+            max-width: 600px;
+            padding: 0 2rem;
+        }
+
+        .home-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            color: #b0b0b0;
+        }
+
+        .home-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .home-text span {
+            color: #3498db;
+        }
+
+        .home-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            color: #b0b0b0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-text {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .main-text h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .main-text h4 {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            background: #333333;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .about-text h4 {
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        .about-gri {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .about-in {
+            background: #444444;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-in h5 {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Technical Languages Section */
+        .inner {
+            background: #333333;
+            padding: 80px 5%;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .Tech_header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .Tech_header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+        }
+
+        .Tcontainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-box {
+            background: #444444;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            border: 1px solid #555;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .tech_img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .skill-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .skill-title h3 {
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        /* Experience, Skills, Achievements Sections */
+        .experience-content,
+        .skills-content,
+        .portfolio-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .box,
+        .row {
+            background: #333333;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            border: 1px solid #444;
+        }
+
+        .box:hover,
+        .row:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .box img,
+        .row img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .box h3,
+        .row h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .box h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .box p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        .row-text h6 {
+            color: #3498db;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-text h4 {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-text p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .contact-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-list a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-icons a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .contact-icons a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll to Top */
+        .top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .navbar {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                height: 300px;
+                margin-top: 120px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .home-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .about-gri {
+                grid-template-columns: 1fr;
+            }
+
+            .Tcontainer {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .experience-content,
+            .skills-content,
+            .portfolio-content {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 3%;
+            }
+
+            .inner {
+                padding: 60px 3%;
+            }
+
+            .contact {
+                padding: 2rem;
+            }
+
+            .contact-icons {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h2 class="logo">Davidskil<span>tech</span></h2>
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#achievement">Achievements</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Image Section -->
+    <section class="hero-image">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Innovative Solutions in Technology & Design</p>
+        </div>
+    </section>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <video autoplay loop muted playsinline class="back-video">
+            <source src="Timi Dakolo, Ebuka and Noble Igwe - Obim (Official Audio).mp4" type="video/mp4">
+        </video>
+        <div class="home-text fade-in">
+            <h4>Hello, I'm</h4>
+            <h1>David Mfon<br><span>Expert</span></h1>
+            <h3>Software Developer & Hardware Engineer</h3>
+            <a href="#" class="btn">Download Resume</a>
+        </div>
+    </section>
+
+     <!-- About Section -->
+     <section class="about fade-in" id="about">
+        <div class="about-img">
+            <img src="image 12.jpg" alt="David Mfon Profile">
+        </div>
+        <div class="about-text">
+            <h2>About Me</h2>
+            <h4>Hi, My Name is David Mfon!</h4>
+            <p>I am a passionate Computer Hardware & Software Engineer with 4 years of experience specializing in comprehensive technology solutions. My expertise spans across web development, software engineering, graphic design, and computer hardware support.</p>
+            <p>I have a keen interest in problem solving and finding new and dynamic ideas. I am a Machine Learning Enthusiast & Front-end Web Developer who can provide clean code and pixel perfect design.</p>
+
+            <div class="about-gri">
+                <div class="about-in">
+                    <h5>Problem Solving & Algorithm Design</h5>
+                </div>
+                <div class="about-in">
+                    <h5>IT Support & Operations</h5>
+                </div>
+                <div class="about-in">
+                    <h5>Hardware & Software Engineering</h5>
+                </div>
+                <div class="about-in">
+                    <h5>Web Development & Programming</h5>
+                </div>
+                <div class="about-in">
+                    <h5>IT Support Specialist | Hardware, Software & Network</h5>
+                </div>
+                <div class="about-in">
+                    <h5>Technical Support Officer | IT Systems & Networking</h5>
+                </div>
+                <div class="about-in">
+                    <h5>IT Support Analyst | Infrastructure & Remote Support</h5>
+                </div>
+                <div class="about-in">
+                    <h5>Graphic Designer & Visual Communications</h5>
+                </div>
+            </div>
+            
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- Technical Languages Section -->
+    <div class="inner fade-in">
+        <div class="Tech_header">
+            <h1>Programming Languages</h1>
+        </div>
+        <div class="Tcontainer">
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="tech_img">
+                        <img class="skill-icon" src="image 11.jpg" alt="C Programming Language">
+                    </div>
+                    <h3>C</h3>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="tech_img">
+                        <img class="skill-icon" src="image 2.jpg" alt="C++ Programming Language">
+                    </div>
+                    <h3>C++</h3>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="tech_img">
+                        <img class="skill-icon" src="image 3.jpg" alt="HTML">
+                    </div>
+                    <h3>HTML</h3>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="tech_img">
+                        <img class="skill-icon" src="image 4.jpg" alt="CSS">
+                    </div>
+                    <h3>CSS</h3>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="tech_img">
+                        <img class="skill-icon" src="image 5.jpg" alt="JavaScript">
+                    </div>
+                    <h3>JavaScript</h3>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="tech_img">
+                        <img class="skill-icon" src="image 6.jpg" alt="Python">
+                    </div>
+                    <h3>Bootstrap</h3>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="tech_img">
+                        <img class="skill-icon" src="image 3.jpg" alt="Python">
+                    </div>
+                    <h3>Nextjs</h3>
+                </div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">
+                    <div class="tech_img">
+                        <img class="skill-icon" src="image 2.jpg" alt="Python">
+                    </div>
+                    <h3>Python</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section class="experience fade-in" id="experience">
+        <div class="main-text">
+            <h2>My Experience</h2>
+            <h4>Professional Background</h4>
+        </div>
+        <div class="experience-content">
+            <div class="box">
+                <img src="image 8.jpg" alt="Company Experience">
+                <h3>Signature Solution</h3>
+                <h4><span>Technical Content Writer & Developer</span></h4>
+                <p>• Created Multiple Software Development Projects with detailed Documentation<br>
+                • Worked with the Dynamic Team of Signature Solution<br>
+                • Developed comprehensive IT solutions for clients</p>
+            </div>
+        </div>
+        <div class="experience-content">
+            <div class="box">
+                <img src="image 8.jpg" alt="Company Experience">
+                <h3>Ragnarok Property Development Limited</h3>
+                <h4><span>Technical Support & Developer</span></h4>
+                <p>• At Ragnarok Property Development Limited, I combined administrative support with technical IT functions to ensure smooth business operations within a fast-paced real estate environment.
+
+                    Key Responsibilities
+                    
+                   <p>.Provided day-to-day IT support for staff, including troubleshooting hardware, software, and networking issues</p>
+                    
+                    <p>..Assisted in the installation, configuration, and maintenance of computer systems, office equipment, and internet connectivity</p>
+                    
+                   <p>.Supported the company’s real estate digital platforms and tools, ensuring accessibility and performance</p> 
+                    
+                   <p>.Worked closely with management to resolve system-related problems quickly, minimizing downtime</p> 
+                    
+                    <p>..Assisted with data entry, document management, and office coordination tasks to improve workflow efficiency</p>
+                    
+                    <p>.Monitored and maintained IT assets, ensuring proper usage and timely updates</p>
+                    
+                    <p>Provided technical guidance and support to non-technical staff, helping them adapt to digital tools</p>
+                <p>.Worked with the Dynamic Team of Signature Solution</p>
+            <p>.Developed comprehensive IT solutions for clients</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills fade-in" id="skills">
+        <div class="main-text">
+            <h2>My Skills</h2>
+            <h4>Core Competencies</h4>
+        </div>
+        <div class="skills-content">
+            <div class="box">
+                <img src="image 2.jpg" alt="Competitive Programming">
+                <h3>Competitive Programming</h3>
+                <p>Competitive programming is a sport of coding, where individuals engage in solving algorithmic challenges against the clock, showcasing their problem-solving skills and efficiency in crafting elegant and optimized solutions.</p>
+            </div>
+            <div class="box">
+                <img src="Image 9.jpg" alt="Front-end Development">
+                <h3>Front-end Development</h3>
+                <p>Front-end development is the art of bringing digital creativity to life, focusing on the user interface and user experience to seamlessly merge design with functionality, shaping the visual and interactive elements of websites.</p>
+            </div>
+            <div class="box">
+                <img src="image 5.jpg" alt="Machine Learning">
+                <h3>Machine Learning</h3>
+                <p>Machine learning is a transformative field at the intersection of computer science and A.I., empowering systems to learn from data, recognize patterns, and make intelligent decisions, entering in automated insights and problem-solving.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievement fade-in" id="achievement">
+        <div class="main-text">
+            <h2>My Achievements</h2>
+            <h4>Some of My Major Accomplishments</h4>
+        </div>
+        <div class="portfolio-content">
+            <div class="row">
+                <img src="image 8.jpg" alt="Coding Achievement">
+                <div class="main-row">
+                    <div class="row-text">
+                        <h6>Coding Excellence</h6>
+                    </div>
+                </div>
+                <h3>Advanced Programming Solutions</h3>
+            </div>
+            <div class="row">
+                <img src="image 11.jpg" alt="Technical Achievement">
+                <div class="main-row">
+                    <div class="row-text">
+                        <h6>Technical Innovation</h6>
+                    </div>
+                </div>
+                <h3>Hardware & Software Integration</h3>
+            </div>
+            <div class="row">
+                <img src="image 7.jpg" alt="Professional Achievement">
+                <div class="main-row">
+                    <div class="row-text">
+                        <h6>Professional Growth</h6>
+                    </div>
+                </div>
+                <h3>Client Success Stories</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio fade-in" id="portfolio">
+        <div class="main-text">
+            <h2>My Projects</h2>
+            <h4>Some Of My Distinguished Works</h4>
+        </div>
+        <div class="portfolio-content">
+            <div class="row">
+                <img src="image 2.jpg" alt="Library Management System">
+                <div class="main-row">
+                    <div class="row-text">
+                        <h6>Web App Development</h6>
+                    </div>
+                </div>
+                <h3>Library Management System</h3>
+            </div>
+            <div class="row">
+                <img src="image 3.jpg" alt="Machine Learning Project">
+                <div class="main-row">
+                    <div class="row-text">
+                        <h6>Machine Learning</h6>
+                    </div>
+                </div>
+                <h3>AI Classification System</h3>
+            </div>
+            <div class="row">
+                <img src="image 7.jpg" alt="Data Analysis Project">
+                <div class="main-row">
+                    <div class="row-text">
+                        <h6>Data Science</h6>
+                    </div>
+                </div>
+                <h3>Predictive Analytics Platform</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact fade-in" id="contact">
+        <div class="contact-text">
+            <h2>Contact Me</h2>
+            <h4>Let's Work Together</h4>
+            <p>I will help you with your next project. Contact me through the details given below.</p>
+            <div class="contact-list">
+                <li><a href="#">Level 4 Suite 3B, Dominion Plaza, Igbo Efon Lekki Ajah Express Way, Lagos, Nigeria</a></li>
+                <li><a href="mailto:officialmfondavid@gmail.com">officialmfondavid@gmail.com</a></li>
+                <li><a href="tel:+2349027037972">+234 902 703 7972</a></li>
+                <a href="mailto:officialmfondavid@gmail.com">
+                    <button class="btn">Let's Chat</button>
+                </a>
+            </div>
+            <div class="contact-icons">
+                <a href="https://www.linkedin.com/in/mfon-david-369a2835b/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.instagram.com/humbledavid_33/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="#" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://wa.me/2349027037972" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+        </div> 
+    </section>
+
+    <!-- Scroll to Top -->
+    <a href="#home" class="top"><i class='bx bx-up-arrow-alt'></i></a>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.top');
+            if (window.pageYOffset > 300) {
+                scrollTop.style.opacity = '1';
+                scrollTop.style.visibility = 'visible';
+            } else {
+                scrollTop.style.opacity = '0';
+                scrollTop.style.visibility = 'hidden';
+            }
+        });
+    </script>
